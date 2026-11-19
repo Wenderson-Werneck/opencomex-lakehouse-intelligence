@@ -1,0 +1,12 @@
+services:
+  opencomex-lakehouse:
+    build: .
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
+      - LAKEHOUSE_ENGINE=duckdb
+    volumes:
+      - lakehouse_data:/app/data
+
+volumes:
+  lakehouse_data:
